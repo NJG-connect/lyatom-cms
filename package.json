@@ -1,0 +1,61 @@
+{
+  "name": "lyatom-cms",
+  "version": "1.0.0",
+  "description": "Git Based CMS Package",
+  "homepage": "https://github.com/NJG-connect/lyatom-cms.git",
+  "license": "ISC",
+  "author": "NJG Connect",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NJG-connect/lyatom-cms.git"
+  },
+  "main": "build/index.js",
+  "module": "build/index.esm.js",
+  "files": [
+    "build"
+  ],
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "yarn build"
+  },
+  "keywords": [
+    "lyatom",
+    "lyatom cms",
+    "cms",
+    "njg connect",
+    "landingPage",
+    "one page",
+    "netlify",
+    "netlify cms",
+    "git based cms",
+    "git cms"
+  ],
+  "bugs": {
+    "url": "https://github.com/NJG-connect/lyatom-cms/issues"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  },
+  "resolutions": {
+    "**/react": "16.0.0",
+    "**/react-dom": "16.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-image": "^2.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "identity-obj-proxy": "^3.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.56.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-styles": "^3.14.1",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.1.3",
+    "typescript-plugin-css-modules": "^3.4.0"
+  }
+}

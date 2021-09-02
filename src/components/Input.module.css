@@ -1,0 +1,32 @@
+.content {
+  background-color: transparent;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
+.input {
+  border: 0;
+  background-color: white;
+  border: 1px solid #edecf3;
+  border-radius: 2px;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+}
+
+.label {
+  color: black;
+  font-size: 18px;
+  font-weight: normal;
+  position: relative;
+  left: auto;
+  top: auto;
+  transition: none;
+  -moz-transition: none;
+  -webkit-transition: none;
+}

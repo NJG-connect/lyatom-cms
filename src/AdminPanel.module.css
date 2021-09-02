@@ -1,0 +1,306 @@
+.card {
+  --card-width: 35%;
+  z-index: 100;
+  position: fixed;
+  left: 0px;
+  right: auto;
+  top: 0px;
+  bottom: auto;
+  height: 100%;
+  width: var(--card-width);
+  min-width: 300px;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(196, 196, 196, 1);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(196, 196, 196, 1);
+  box-shadow: 0px 3px 6px 0px rgba(196, 196, 196, 1);
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f6f9;
+  flex: 1;
+  font-family: system-ui;
+}
+
+.dragbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 5px;
+  opacity: 0;
+  cursor: col-resize;
+  background: #3fa9f5;
+  transition: 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s;
+}
+
+.dragbar:hover,
+.card.resizing .dragbar {
+  opacity: 1;
+  cursor: col-resize;
+  transition: 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0.3s;
+}
+
+.cardIsClose {
+  width: 0px;
+  min-width: 0px;
+  visibility: hidden;
+}
+
+.title {
+  font-size: larger;
+  margin-right: 25px;
+}
+
+.header {
+  flex: 0.1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-bottom: 2px solid #edecf3;
+  margin: 0 20px;
+  font-weight: bold;
+}
+
+.content {
+  padding: 0 20px;
+  flex: 0.8;
+  padding-top: 10px;
+  overflow-y: scroll;
+}
+
+.footer {
+  flex: 0.1;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonReset {
+  height: 45px;
+  width: 100px;
+  background-color: white;
+  border-radius: 30px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  color: #3fa9f5;
+  margin: 0px 15px 0px 30px;
+  padding: 0px 30px;
+  cursor: pointer;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.12);
+  border: #edecf3;
+}
+.buttonSave {
+  height: 45px;
+  width: 100%;
+  margin: 0px 30px 0px 15px;
+  padding: 0px 15px;
+  border-radius: 30px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  color: #3fa9f5;
+  cursor: pointer;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.12);
+  border: #3fa9f5 2px solid;
+}
+
+.buttonSave > p,
+.buttonReset > p {
+  cursor: pointer;
+}
+
+.buttonDisabled,
+.buttonDisabled > p {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.currentContent {
+  height: 40px;
+  width: auto;
+  background-color: white;
+  margin-top: -10px;
+  margin-right: -20px;
+  margin-left: -20px;
+  border-bottom: 2px solid #edecf3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+.currentContent:hover {
+  cursor: pointer;
+}
+
+.iconCurrentContent {
+  margin-left: 20px;
+  height: 25px;
+  width: 25px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.textCurrentContent {
+  font-weight: bold;
+  font-size: large;
+  cursor: pointer;
+}
+
+.togglePanel {
+  position: absolute;
+  z-index: 10;
+  right: -50px;
+  bottom: 50px;
+  height: 44px;
+  width: 50px;
+  background-color: #3fa9f5;
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px, rgb(0 0 0 / 20%) 0px 2px 6px;
+  border-radius: 0px 24px 24px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  visibility: visible;
+  background-image: linear-gradient(
+    to right top,
+    #ff0000,
+    #ff007c,
+    #e25ad1,
+    #918cfa,
+    #3fa9f5
+  );
+}
+
+.iconToggle {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  fill: white;
+}
+
+.divLogout {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.divLogout:hover {
+  cursor: pointer;
+}
+
+.iconLogout {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  fill: white;
+}
+
+.iconAdd {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.iconAddSpan > input {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.iconAddSpan {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  overflow: hidden;
+  background: center center no-repeat;
+  background-size: 100%;
+  background-image: url("./icons/upload.png");
+  cursor: pointer;
+}
+.iconAddSpan :hover,
+.iconAddSpan > input :hover {
+  cursor: pointer;
+}
+
+.headerOfArrayType {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.headerOfImageType {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.headerDivImg {
+  width: 125px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.imagePreview {
+  width: 230px;
+  max-height: 230px;
+  object-fit: contain;
+  border: 1px dashed gray;
+  padding: 10px;
+}
+
+.contentOfImageType {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.galleryContentOfImageType {
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  display: flex;
+}
+
+.imageGallery {
+  width: 60px;
+  height: 60px;
+  border: 1px dashed gray;
+  padding: 10px;
+  object-fit: contain;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.imageGallery:hover {
+  cursor: pointer;
+}
+
+.imageGallerySelected {
+  border-color: #3a42ff;
+  border-width: 2px;
+}
+
+@media screen and (max-width: 400px) {
+  .card {
+    width: 80%;
+    min-width: auto;
+  }
+  .cardIsClose {
+    width: 0px;
+    min-width: 0px;
+    visibility: hidden;
+  }
+}
