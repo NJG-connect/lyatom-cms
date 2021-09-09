@@ -19,7 +19,7 @@ function Home() {
 
         <main>
           <Header />
-          {/* <FirstSection /> */}
+          <FirstSection />
           <SecondSection />
         </main>
         <Footer />

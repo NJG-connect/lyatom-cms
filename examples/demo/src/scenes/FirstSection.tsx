@@ -53,7 +53,11 @@ function FirstSection() {
                     <div className="feature-icon">
                       <img
                         className="asset-light"
-                        src={require("../assets/images/" + el.logo).default}
+                        src={
+                          el.logo
+                            ? require("../assets/images/" + el.logo).default
+                            : undefined
+                        }
                         alt={`Feature ${index}`}
                       />
                     </div>
