@@ -17,7 +17,7 @@ function SecondSection() {
               <a
                 className="button button-primary"
                 href="/"
-                id="subtitle-second-section"
+                id="buttonName-second-section"
               >
                 {secondSectionJson.buttonName}
               </a>

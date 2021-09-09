@@ -125,7 +125,7 @@ const data: CmsPropsType = {
         },
         {
           type: "input",
-          htmlId: "subtitle-second-section",
+          htmlId: "buttonName-second-section",
           id: "buttonName",
           title: "Button name :",
         },

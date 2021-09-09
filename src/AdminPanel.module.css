@@ -1,4 +1,6 @@
-.card {
+@import "./reset.module.css";
+
+.card:global(#AdminPanelId) {
   --card-width: 35%;
   z-index: 100;
   position: fixed;
@@ -16,10 +18,9 @@
   flex-direction: column;
   background-color: #f6f6f9;
   flex: 1;
-  font-family: system-ui;
 }
 
-.dragbar {
+:global(#AdminPanelId) .dragbar {
   position: absolute;
   top: 0;
   right: 0;
@@ -31,25 +32,25 @@
   transition: 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s;
 }
 
-.dragbar:hover,
-.card.resizing .dragbar {
+:global(#AdminPanelId) .dragbar:hover,
+.card.resizing:global(#AdminPanelId) .dragbar {
   opacity: 1;
   cursor: col-resize;
   transition: 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0.3s;
 }
 
-.cardIsClose {
+.cardIsClose:global(#AdminPanelId) {
   width: 0px;
   min-width: 0px;
   visibility: hidden;
 }
 
-.title {
+:global(#AdminPanelId) .title {
   font-size: larger;
   margin-right: 25px;
 }
 
-.header {
+:global(#AdminPanelId) .header {
   flex: 0.1;
   align-items: center;
   justify-content: center;
@@ -59,14 +60,15 @@
   font-weight: bold;
 }
 
-.content {
+:global(#AdminPanelId) div.content {
+  margin: 0;
   padding: 0 20px;
   flex: 0.8;
   padding-top: 10px;
   overflow-y: scroll;
 }
 
-.footer {
+:global(#AdminPanelId) .footer {
   flex: 0.1;
   display: flex;
   flex-direction: row;
@@ -75,7 +77,7 @@
   justify-content: center;
 }
 
-.buttonReset {
+:global(#AdminPanelId) .buttonReset {
   height: 45px;
   width: 100px;
   background-color: white;
@@ -91,7 +93,7 @@
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.12);
   border: #edecf3;
 }
-.buttonSave {
+:global(#AdminPanelId) .buttonSave {
   height: 45px;
   width: 100%;
   margin: 0px 30px 0px 15px;
@@ -107,49 +109,50 @@
   border: #3fa9f5 2px solid;
 }
 
-.buttonSave > p,
-.buttonReset > p {
+:global(#AdminPanelId) .buttonSave > p,
+:global(#AdminPanelId) .buttonReset > p {
   cursor: pointer;
+  color: #3fa9f5;
 }
 
-.buttonDisabled,
-.buttonDisabled > p {
+:global(#AdminPanelId) .buttonDisabled,
+:global(#AdminPanelId) .buttonDisabled > p {
   opacity: 0.5;
   cursor: default;
 }
 
-.currentContent {
+:global(#AdminPanelId) .currentContent {
   height: 40px;
   width: auto;
   background-color: white;
   margin-top: -10px;
   margin-right: -20px;
   margin-left: -20px;
+  margin-bottom: 10px;
   border-bottom: 2px solid #edecf3;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   cursor: pointer;
 }
-.currentContent:hover {
+:global(#AdminPanelId) .currentContent:hover {
   cursor: pointer;
 }
 
-.iconCurrentContent {
-  margin-left: 20px;
+:global(#AdminPanelId) .iconCurrentContent {
   height: 25px;
   width: 25px;
   margin-left: 20px;
   cursor: pointer;
 }
 
-.textCurrentContent {
+:global(#AdminPanelId) .textCurrentContent {
   font-weight: bold;
   font-size: large;
   cursor: pointer;
 }
 
-.togglePanel {
+:global(#AdminPanelId) .togglePanel {
   position: absolute;
   z-index: 10;
   right: -50px;
@@ -175,44 +178,43 @@
   );
 }
 
-.iconToggle {
+:global(#AdminPanelId) .iconToggle {
   height: 25px;
   width: 25px;
   cursor: pointer;
   fill: white;
 }
 
-.divLogout {
-  position: absolute;
+:global(#AdminPanelId) .divLogout {
   right: 20px;
   top: 20px;
   cursor: pointer;
 }
 
-.divLogout:hover {
+:global(#AdminPanelId) .divLogout:hover {
   cursor: pointer;
 }
 
-.iconLogout {
+:global(#AdminPanelId) .iconLogout {
   height: 25px;
   width: 25px;
   cursor: pointer;
   fill: white;
 }
 
-.iconAdd {
+:global(#AdminPanelId) .iconAdd {
   height: 30px;
   width: 30px;
   cursor: pointer;
 }
 
-.iconAddSpan > input {
+:global(#AdminPanelId) .iconAddSpan > input {
   height: 100%;
   width: 100%;
   opacity: 0;
   cursor: pointer;
 }
-.iconAddSpan {
+:global(#AdminPanelId) .iconAddSpan {
   height: 30px;
   width: 30px;
   display: inline-block;
@@ -223,17 +225,18 @@
   cursor: pointer;
 }
 .iconAddSpan :hover,
-.iconAddSpan > input :hover {
+:global(#AdminPanelId) .iconAddSpan > input :hover {
   cursor: pointer;
 }
 
-.headerOfArrayType {
+:global(#AdminPanelId) .headerOfArrayType {
   flex-direction: row;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 10px;
 }
-.headerOfImageType {
+:global(#AdminPanelId) .headerOfImageType {
   flex-direction: row;
   display: flex;
   align-items: center;
@@ -241,7 +244,7 @@
   margin-bottom: 20px;
 }
 
-.headerDivImg {
+:global(#AdminPanelId) .headerDivImg {
   width: 125px;
   display: flex;
   flex-direction: row;
@@ -249,7 +252,7 @@
   justify-content: space-around;
 }
 
-.imagePreview {
+:global(#AdminPanelId) .imagePreview {
   width: 230px;
   max-height: 230px;
   object-fit: contain;
@@ -257,14 +260,14 @@
   padding: 10px;
 }
 
-.contentOfImageType {
+:global(#AdminPanelId) .contentOfImageType {
   flex-direction: row;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.galleryContentOfImageType {
+:global(#AdminPanelId) .galleryContentOfImageType {
   flex-wrap: wrap;
   overflow-y: scroll;
   height: 200px;
@@ -274,7 +277,7 @@
   display: flex;
 }
 
-.imageGallery {
+:global(#AdminPanelId) .imageGallery {
   width: 60px;
   height: 60px;
   border: 1px dashed gray;
@@ -284,21 +287,21 @@
   cursor: pointer;
 }
 
-.imageGallery:hover {
+:global(#AdminPanelId) .imageGallery:hover {
   cursor: pointer;
 }
 
-.imageGallerySelected {
+:global(#AdminPanelId) .imageGallerySelected {
   border-color: #3a42ff;
   border-width: 2px;
 }
 
 @media screen and (max-width: 400px) {
-  .card {
+  .card:global(#AdminPanelId) {
     width: 80%;
     min-width: auto;
   }
-  .cardIsClose {
+  .cardIsClose:global(#AdminPanelId) {
     width: 0px;
     min-width: 0px;
     visibility: hidden;

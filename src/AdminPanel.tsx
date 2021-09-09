@@ -307,9 +307,10 @@ function AdminPanel({
               </div>
             ) : (
               <div className={styles.contentOfImageType}>
+                {console.log(imageInfo)}
                 <img
                   onClick={() => {}}
-                  src={imageInfo.url}
+                  src={imageInfo ? imageInfo.url : undefined}
                   className={styles.imagePreview}
                   alt="change Logo"
                   key={`${configValue.id}-Img`}
@@ -340,7 +341,7 @@ function AdminPanel({
 
   // for the resize
   let isDragging = false;
-  let adminPanelElement = document.getElementById("AdminPanel-content");
+  let adminPanelElement = document.getElementById("AdminPanelId");
   let target = document.getElementById("AdminPanel-dragbar");
 
   function clearJSEvents() {
@@ -375,7 +376,7 @@ function AdminPanel({
   return (
     <div
       className={`${styles.card} ${panelIsOpen ? "" : styles.cardIsClose}`}
-      id="AdminPanel-content"
+      id="AdminPanelId"
     >
       <div className={styles.dragbar} id="AdminPanel-dragbar" />
       <div className={styles.header}>

@@ -157,9 +157,10 @@ function AdminPanelContainer({
             !imageJson.hasOwnProperty(newSubCategory.mediaFolder)
           ) {
             const data = await fetchImageDataFromGit(
-              `${originConfig.repo}/contents${newSubCategory.mediaFolder}?ref=${originConfig.branch}`,
+              originConfig.repo,
               githubToken,
-              originConfig.branch
+              originConfig.branch,
+              newSubCategory.mediaFolder
             );
             setImageJson((currentImageJson) => ({
               ...currentImageJson,
@@ -256,9 +257,10 @@ function AdminPanelContainer({
 
       if (originConfig.mediaFolder) {
         const data = await fetchImageDataFromGit(
-          `${originConfig.repo}/contents${originConfig.mediaFolder}?ref=${originConfig.branch}`,
+          originConfig.repo,
           githubToken,
-          originConfig.branch
+          originConfig.branch,
+          originConfig.mediaFolder
         );
         setImageJson((currentImageJson) => ({
           ...currentImageJson,

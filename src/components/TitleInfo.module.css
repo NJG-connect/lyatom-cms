@@ -1,4 +1,4 @@
-.content {
+:global(#AdminPanelId) .content {
   background-color: white;
   height: 50px;
   border: 1px solid #edecf3;
@@ -8,15 +8,15 @@
   flex: 1;
   margin: 20px 0;
   cursor: pointer;
-  color: black;
+  color: #6b7a90;
 }
-.content:hover {
+:global(#AdminPanelId) .content:hover {
   color: #3fa9f5;
   cursor: pointer;
   background-color: #edecf3;
 }
 
-.middle {
+:global(#AdminPanelId) .middle {
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -25,7 +25,7 @@
   padding-left: 10px;
 }
 
-.last {
+:global(#AdminPanelId) .last {
   width: 40px;
   display: flex;
   flex-direction: row;
@@ -35,7 +35,7 @@
   border-top-right-radius: 7px;
 }
 
-.label {
+:global(#AdminPanelId) .label {
   font-weight: bold;
   -webkit-line-clamp: 2;
   overflow: hidden;
@@ -47,7 +47,7 @@
   -webkit-box-orient: vertical;
 }
 
-.icon {
+:global(#AdminPanelId) .icon {
   height: 20px;
   width: 20px;
 }

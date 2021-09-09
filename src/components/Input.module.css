@@ -1,4 +1,4 @@
-.content {
+:global(#AdminPanelId) .content {
   background-color: transparent;
   height: 90px;
   width: 100%;
@@ -9,7 +9,7 @@
   margin: 20px 0;
 }
 
-.input {
+:global(#AdminPanelId) .input {
   border: 0;
   background-color: white;
   border: 1px solid #edecf3;
@@ -17,10 +17,11 @@
   width: 100%;
   font-size: 18px;
   padding: 10px 10px 10px 5px;
+  color: #4d5f79;
 }
 
-.label {
-  color: black;
+:global(#AdminPanelId) .label {
+  color: #6b7a90;
   font-size: 18px;
   font-weight: normal;
   position: relative;

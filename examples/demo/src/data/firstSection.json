@@ -4,17 +4,17 @@
   "logo": "features-box-light.svg",
   "infoSection": [
     {
-      "title": "Discover",
+      "title": "Discover n°1",
       "subtitle": "Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do \n eiusmod tempor incididunt ut labore et dolore magna aliqua \n dui.",
       "logo": "feature-01-light.svg"
     },
     {
-      "title": "Discover",
+      "title": "Discover n°2",
       "subtitle": "Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do \n eiusmod tempor incididunt ut labore et dolore magna aliqua \n dui.",
       "logo": "feature-02-light.svg"
     },
     {
-      "title": "Discover",
+      "title": "Discover n°3",
       "subtitle": "Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do \n eiusmod tempor incididunt ut labore et dolore magna aliqua \n dui.",
       "logo": "feature-03-light.svg"
     }

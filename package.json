@@ -35,12 +35,12 @@
     "url": "https://github.com/NJG-connect/lyatom-cms/issues"
   },
   "peerDependencies": {
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0"
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1"
   },
   "resolutions": {
-    "**/react": "16.0.0",
-    "**/react-dom": "16.0.0"
+    "**/react": "16.13.1",
+    "**/react-dom": "16.13.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^20.0.0",

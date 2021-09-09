@@ -9,3 +9,5 @@ yarn
 npm link njgconnectcms2
 yarn
 yarn start
+
+https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react

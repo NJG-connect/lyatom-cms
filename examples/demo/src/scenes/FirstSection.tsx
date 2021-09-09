@@ -47,7 +47,7 @@ function FirstSection() {
               return (
                 <div
                   className="feature is-revealing"
-                  key={`div-${el.title || index}`}
+                  key={`div-${el.title || index + 1}`}
                 >
                   <div className="feature-inner">
                     <div className="feature-icon">
