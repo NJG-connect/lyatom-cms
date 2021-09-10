@@ -68,6 +68,68 @@ function AdminPanelContainer({
     lineInArray: Array<number>;
   }>({ positionInConfigFile: [], lineInArray: [] });
 
+  //  know if user is loggin or not
+  const [userIsLoggin, setuserLoggin] = useState(false);
+
+  // its url for login or not
+  const [isUrlForLogin, setIsUrlForLogin] = useState(
+    window.location.pathname.includes(parameter.urlForLogin)
+  );
+  const openNetlifyAuth = useCallback(() => {
+    const netlifyIdentity = window.netlifyIdentity;
+    if (netlifyIdentity) {
+      netlifyIdentity.setLocale("fr");
+      netlifyIdentity.open();
+    } else {
+      onDisconnected();
+    }
+  }, [window.netlifyIdentity]);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    const userInfoString = localStorage.getItem("gotrue.user");
+    const userInfo = userInfoString ? JSON.parse(userInfoString) : false;
+
+    // if already Connected
+    if (!!userInfo) {
+      const tokenExpiration = new Date(userInfo.exp * 1000);
+      const dateNow = new Date();
+      if (tokenExpiration < dateNow) {
+        onDisconnected();
+        isUrlForLogin && openNetlifyAuth();
+      } else {
+        setuserLoggin(true);
+      }
+    } else {
+      isUrlForLogin && openNetlifyAuth();
+    }
+  }, [isUrlForLogin]);
+
+  const onDisconnected = () => {
+    localStorage.removeItem("gotrue.user");
+    setuserLoggin(false);
+  };
+
+  useEffect(() => {
+    if (window.netlifyIdentity) {
+      const netlifyIdentity = window.netlifyIdentity;
+      netlifyIdentity.on("login", () => setuserLoggin(true));
+      netlifyIdentity.on("logout", () => onDisconnected);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (window.netlifyIdentity && isUrlForLogin && !userIsLoggin) {
+      const netlifyIdentity = window.netlifyIdentity;
+      netlifyIdentity.setLocale("fr");
+      netlifyIdentity.open();
+    }
+  }, [window.netlifyIdentity, isUrlForLogin, userIsLoggin]);
+
   // transform the currentConfig with current Position ( if user click on element)
   const currentConfigWithGoodPosition = useMemo(() => {
     if (
@@ -98,14 +160,6 @@ function AdminPanelContainer({
   const contentHasChange = useMemo(
     () => !(JSON.stringify(originJsonValue) === JSON.stringify(jsonValue)),
     [originJsonValue, jsonValue]
-  );
-
-  //  know if user is loggin or not
-  const [userIsLoggin, setuserLoggin] = useState(false);
-
-  // its url for login or not
-  const isUrlForLogin: boolean = window.location.pathname.includes(
-    parameter.urlForLogin
   );
 
   // recursive function configure and add real data on state JsonValue + add path the real value on input
@@ -456,53 +510,6 @@ function AdminPanelContainer({
       selectAnElement(index, newArr.length - 1);
     }
   };
-
-  const openNetlifyAuth = useCallback(() => {
-    const netlifyIdentity = window.netlifyIdentity;
-    if (netlifyIdentity) {
-      netlifyIdentity.setLocale("fr");
-      netlifyIdentity.open();
-    } else {
-      onDisconnected();
-    }
-  }, []);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    const userInfoString = localStorage.getItem("gotrue.user");
-    const userInfo = userInfoString ? JSON.parse(userInfoString) : false;
-
-    // if already Connected
-    if (!!userInfo) {
-      const tokenExpiration = new Date(userInfo.exp * 1000);
-      const dateNow = new Date();
-      if (tokenExpiration < dateNow) {
-        onDisconnected();
-        isUrlForLogin && openNetlifyAuth();
-      } else {
-        setuserLoggin(true);
-      }
-    } else {
-      isUrlForLogin && openNetlifyAuth();
-    }
-  }, [isUrlForLogin, openNetlifyAuth]);
-
-  const onDisconnected = () => {
-    localStorage.removeItem("gotrue.user");
-    setuserLoggin(false);
-  };
-
-  useEffect(() => {
-    if (window.netlifyIdentity) {
-      const netlifyIdentity = window.netlifyIdentity;
-      netlifyIdentity.on("login", () => setuserLoggin(true));
-      netlifyIdentity.on("logout", () => onDisconnected);
-    }
-  }, []);
 
   if (!userIsLoggin) {
     return <></>;
