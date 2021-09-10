@@ -459,8 +459,8 @@ function AdminPanelContainer({
 
   const openNetlifyAuth = useCallback(() => {
     const netlifyIdentity = window.netlifyIdentity;
-    netlifyIdentity.setLocale("fr");
     if (netlifyIdentity) {
+      netlifyIdentity.setLocale("fr");
       netlifyIdentity.open();
     } else {
       onDisconnected();

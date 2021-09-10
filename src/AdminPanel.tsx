@@ -307,7 +307,6 @@ function AdminPanel({
               </div>
             ) : (
               <div className={styles.contentOfImageType}>
-                {console.log(imageInfo)}
                 <img
                   onClick={() => {}}
                   src={imageInfo ? imageInfo.url : undefined}
