@@ -218,10 +218,17 @@ function AdminPanel({
           renderViewWithContent(el, index, nbrIncrementation + 1)
         );
       } else if (configValue.type === "image") {
-        const nameOfLogo = resolvePathToRealObjectWithArray(
+        const namesOfLogo = resolvePathToRealObjectWithArray(
           configValue.value!,
           dataProps
         );
+        const nameOfLogo =
+          namesOfLogo === undefined || typeof namesOfLogo === "string"
+            ? namesOfLogo
+            : namesOfLogo[
+                specificIndexInField[specificIndexInField.length - 1]
+              ];
+
         const imageInfo = images[configValue.mediaFolder!][nameOfLogo];
 
         return (

@@ -31,14 +31,6 @@ function FirstSection() {
                   alt="Feature box"
                   id="logo-first-section"
                 />
-                <img
-                  className="features-illustration asset-light"
-                  src={
-                    require("../assets/images/features-illustration-top-light.svg")
-                      .default
-                  }
-                  alt="Feature illustration top"
-                />
               </div>
             </div>
           </div>
