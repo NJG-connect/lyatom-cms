@@ -115,6 +115,30 @@
   color: #3fa9f5;
 }
 
+:global(#AdminPanelId) .buttonfails {
+  border: red 2px solid;
+  opacity: 0.5;
+  cursor: default;
+}
+
+:global(#AdminPanelId) .buttonfails > p {
+  color: red;
+  opacity: 0.5;
+  cursor: default;
+}
+
+:global(#AdminPanelId) .buttonSuccess > p {
+  color: green;
+  opacity: 0.5;
+  cursor: default;
+}
+
+:global(#AdminPanelId) .buttonSuccess {
+  border: green 2px solid;
+  opacity: 0.5;
+  cursor: default;
+}
+
 :global(#AdminPanelId) .buttonDisabled,
 :global(#AdminPanelId) .buttonDisabled > p {
   opacity: 0.5;

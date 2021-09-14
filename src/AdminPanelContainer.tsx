@@ -75,6 +75,12 @@ function AdminPanelContainer({
   const [isUrlForLogin, setIsUrlForLogin] = useState(
     window.location.pathname.includes(parameter.urlForLogin)
   );
+
+  // statut of the request when save element on git
+  const [statusRequest, setstatusRequest] = useState<
+    "null" | "InProgress" | "success" | "fail"
+  >("null");
+
   const openNetlifyAuth = useCallback(() => {
     const netlifyIdentity = window.netlifyIdentity;
     if (netlifyIdentity) {
@@ -371,6 +377,7 @@ function AdminPanelContainer({
 
   async function onSave() {
     if (contentHasChange) {
+      setstatusRequest("InProgress");
       const jsonToSend = (
         Object.keys(jsonValue) as Array<keyof typeof jsonValue>
       )
@@ -401,7 +408,12 @@ function AdminPanelContainer({
         jsonToSend,
         githubToken
       );
-      console.log(response);
+      if (response.succes) {
+        setstatusRequest("success");
+      } else {
+        setstatusRequest("fail");
+      }
+      setOriginJsonValue({ ...jsonValue });
     }
   }
 
@@ -474,7 +486,8 @@ function AdminPanelContainer({
   const handleReoderArr = () => {};
   const handleDeleteElementOnArr = (
     newArr: any[],
-    positionInJsonValue: string
+    positionInJsonValue: string,
+    htmlId?: string
   ) => {
     // if in positionInJsonValue finish with [] soo we retrieve it on path
     if (
@@ -488,6 +501,11 @@ function AdminPanelContainer({
           newArr
         )
       );
+
+      if (htmlId && document.getElementById(htmlId)) {
+        const componentToDelete = document.getElementById(htmlId)!;
+        componentToDelete.remove();
+      }
     }
   };
 
@@ -534,6 +552,7 @@ function AdminPanelContainer({
       title={parameter.title}
       onSelectImageFromGallery={handleSelectImageFromGallery}
       onSendFile={handleSendFile}
+      statusRequest={statusRequest}
     />
   );
 }

@@ -54,7 +54,11 @@ interface Props {
     positionInJsonValue: string,
     index: number
   ) => void;
-  onDeleteElementOnArr: (newArr: any[], positionInJsonValue: string) => void;
+  onDeleteElementOnArr: (
+    newArr: any[],
+    positionInJsonValue: string,
+    htmlId?: string
+  ) => void;
   title: string;
   images: {
     [key: string]: {
@@ -65,6 +69,7 @@ interface Props {
       };
     };
   };
+  statusRequest: "null" | "InProgress" | "success" | "fail";
 }
 
 function AdminPanel({
@@ -85,6 +90,7 @@ function AdminPanel({
   images,
   onSelectImageFromGallery,
   onSendFile,
+  statusRequest,
 }: Props) {
   const [panelIsOpen, setPanelIsOpen] = useState(false);
   const [galleryOfImageIsOpen, setGalleryOfImageIsOpen] = useState({});
@@ -101,7 +107,15 @@ function AdminPanel({
       indexOfField?: number | undefined,
       nbrIncrementation: number = 0
     ) => {
-      if (configValue.type === "firstLvl") {
+      // time to loading all component
+      if (
+        configValue.type !== "firstLvl" &&
+        configValue.type !== "none" &&
+        configValue.type !== "object" &&
+        configValue.value === undefined
+      ) {
+        return null;
+      } else if (configValue.type === "firstLvl") {
         return configValue.fields.map((el, index) => (
           <TitleArray
             key={el.title}
@@ -123,6 +137,10 @@ function AdminPanel({
           );
         }
         const arrOfNameValue = `${configValue.value}.${configValue.referenceFieldKey}`;
+        const arrOfRefenceFieldKeyName = resolvePathToRealObjectWithArray(
+          arrOfNameValue,
+          dataProps
+        );
         return (
           <Fragment key={`${configValue.title}-div`}>
             <div className={styles.headerOfArrayType}>
@@ -135,7 +153,11 @@ function AdminPanel({
                         configValue.value!,
                         dataProps
                       ),
-                      { [configValue.referenceFieldKey]: "" },
+                      {
+                        [configValue.referenceFieldKey]: `Item n°${
+                          arrOfRefenceFieldKeyName.length + 1
+                        }`,
+                      },
                     ],
                     configValue.value!,
                     indexOfField!
@@ -146,40 +168,42 @@ function AdminPanel({
                 alt="Ajouter"
               />
             </div>
-            {resolvePathToRealObjectWithArray(arrOfNameValue, dataProps).map(
-              (el: string, line: number) => {
-                return (
-                  <TitleArray
-                    key={`-key${el}`}
-                    label={el}
-                    onClick={() => {
-                      pressOnElement(indexOfField!, line);
-                    }}
-                    canDelete={configValue.canDelete}
-                    onDelete={() => {
-                      onDeleteElementOnArr(
-                        (
-                          resolvePathToRealObjectWithArray(
-                            configValue.value!,
-                            dataProps
-                          ) as any[]
-                        ).filter((_el, index) => index !== line),
-                        configValue.value!
-                      );
-                    }}
-                    onReoder={() => {
-                      console.log("onReoder");
-                      onReoderArr();
-                    }}
-                    canReoder={false}
-                  />
-                );
-              }
-            )}
+            {arrOfRefenceFieldKeyName.map((el: string, line: number) => {
+              return (
+                <TitleArray
+                  key={`-key${el}`}
+                  label={el}
+                  onClick={() => {
+                    pressOnElement(indexOfField!, line);
+                  }}
+                  canDelete={configValue.canDelete}
+                  onDelete={() => {
+                    onDeleteElementOnArr(
+                      (
+                        resolvePathToRealObjectWithArray(
+                          configValue.value!,
+                          dataProps
+                        ) as any[]
+                      ).filter((_el, index) => index !== line),
+                      configValue.value!,
+                      configValue.htmlId + line
+                    );
+                  }}
+                  onReoder={() => {
+                    console.log("onReoder");
+                    onReoderArr();
+                  }}
+                  canReoder={false}
+                />
+              );
+            })}
           </Fragment>
         );
       } else if (configValue.type === "input") {
         let path = configValue.value;
+        let htmlId = configValue.htmlId;
+
+        // if parent of input its a array we add the good index
         if (
           configValue.value.includes("[]") &&
           specificIndexInField &&
@@ -190,6 +214,7 @@ function AdminPanel({
             newValue.length === 0
               ? configValue.value
               : `${newValue[0]}[${specificIndexInField[0]}]${newValue[1]}`;
+          htmlId += `${specificIndexInField[specificIndexInField.length - 1]}`;
         }
         const value = resolvePathToRealObjectWithArray(path, dataProps);
 
@@ -197,9 +222,7 @@ function AdminPanel({
           <Input
             label={configValue.title}
             value={value}
-            onChange={(newValue) =>
-              onUpdateInput(path, newValue, configValue.htmlId)
-            }
+            onChange={(newValue) => onUpdateInput(path, newValue, htmlId)}
             nameForAutoComplete={configValue.title}
             key={configValue.id}
           />
@@ -222,14 +245,43 @@ function AdminPanel({
           configValue.value!,
           dataProps
         );
+        let htmlId = configValue.htmlId;
+
+        // name of the logo if parents its a array or not , if it is we add good index
         const nameOfLogo =
           namesOfLogo === undefined || typeof namesOfLogo === "string"
             ? namesOfLogo
             : namesOfLogo[
                 specificIndexInField[specificIndexInField.length - 1]
               ];
+        let imageInfo = images[configValue.mediaFolder!][nameOfLogo];
 
-        const imageInfo = images[configValue.mediaFolder!][nameOfLogo];
+        // path for update element
+        let path = configValue.value;
+        // if parent of input its a array we add the good index
+        if (
+          configValue.value.includes("[]") &&
+          specificIndexInField &&
+          !!specificIndexInField.length
+        ) {
+          const newValue = configValue.value.split("[]");
+          path =
+            newValue.length === 0
+              ? configValue.value
+              : `${newValue[0]}[${
+                  specificIndexInField[specificIndexInField.length - 1]
+                }]${newValue[1]}`;
+          htmlId += `${specificIndexInField[specificIndexInField.length - 1]}`;
+        }
+
+        // reset imageInfo if equal undefined for not bug
+        if (imageInfo === undefined) {
+          imageInfo = {
+            name: undefined,
+            sha: undefined,
+            url: undefined,
+          };
+        }
 
         return (
           <Fragment key={`${configValue.id}-fragment`}>
@@ -256,8 +308,8 @@ function AdminPanel({
                       onSendFile(
                         event.target.files[0],
                         configValue.mediaFolder!,
-                        configValue.value!,
-                        configValue.htmlId
+                        path,
+                        htmlId
                       )
                     }
                     id="fileUpload"
@@ -294,16 +346,18 @@ function AdminPanel({
                               !galleryOfImageIsOpen[configValue.title],
                           });
                           onSelectImageFromGallery(
-                            configValue.value!,
+                            path,
                             images[configValue.mediaFolder][key].name,
                             images[configValue.mediaFolder][key].url,
-                            configValue.htmlId
+                            htmlId
                           );
                         }}
                         src={images[configValue.mediaFolder][key].url}
                         className={`${styles.imageGallery} ${
+                          imageInfo &&
                           images[configValue.mediaFolder][key].sha ===
-                            imageInfo.sha && styles.imageGallerySelected
+                            imageInfo.sha &&
+                          styles.imageGallerySelected
                         }`}
                         alt={images[configValue.mediaFolder][key].name}
                         key={`${configValue.id}-Img${index}`}
@@ -316,7 +370,9 @@ function AdminPanel({
               <div className={styles.contentOfImageType}>
                 <img
                   onClick={() => {}}
-                  src={imageInfo ? imageInfo.url : undefined}
+                  src={
+                    imageInfo && imageInfo.url ? imageInfo.url : panelIcon.image
+                  }
                   className={styles.imagePreview}
                   alt="change Logo"
                   key={`${configValue.id}-Img`}
@@ -379,6 +435,40 @@ function AdminPanel({
   };
   // end resizing
 
+  // change content butonSave apparence
+  const buttonSaveInfo = useMemo(() => {
+    if (!contentHasChange && statusRequest === "null") {
+      return {
+        styles: styles.buttonDisabled,
+        text: "Save",
+        canCallAction: false,
+      };
+    } else if (
+      contentHasChange &&
+      ["null", "success", "fail"].includes(statusRequest)
+    ) {
+      return { styles: "", text: "Save", canCallAction: true };
+    } else if (contentHasChange && statusRequest === "InProgress") {
+      return {
+        styles: styles.buttonDisabled,
+        text: "Loading",
+        canCallAction: false,
+      };
+    } else if (!contentHasChange && statusRequest === "fail") {
+      return {
+        styles: styles.buttonfails,
+        text: "Error",
+        canCallAction: false,
+      };
+    } else if (!contentHasChange && statusRequest === "success") {
+      return {
+        styles: styles.buttonSuccess,
+        text: "Sucess",
+        canCallAction: false,
+      };
+    }
+  }, [statusRequest, contentHasChange]);
+
   return (
     <div
       className={`${styles.card} ${panelIsOpen ? "" : styles.cardIsClose}`}
@@ -412,20 +502,16 @@ function AdminPanel({
         {currentConfigProps.type === "firstLvl" ? (
           <>
             <div
-              className={`${styles.buttonReset} ${
-                !contentHasChange && styles.buttonDisabled
-              }`}
-              onClick={() => contentHasChange && onReset()}
+              className={`${styles.buttonReset} ${buttonSaveInfo.styles}`}
+              onClick={() => buttonSaveInfo.canCallAction && onReset()}
             >
               <p>Reset</p>
             </div>
             <div
-              className={`${styles.buttonSave} ${
-                !contentHasChange && styles.buttonDisabled
-              }`}
-              onClick={() => contentHasChange && onSave()}
+              className={`${styles.buttonSave} ${buttonSaveInfo.styles}`}
+              onClick={() => buttonSaveInfo.canCallAction && onSave()}
             >
-              <p>Sauvegarder</p>
+              <p>{buttonSaveInfo.text}</p>
             </div>
           </>
         ) : (

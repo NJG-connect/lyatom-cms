@@ -40,6 +40,7 @@ export interface arrayType {
   canAdd?: boolean;
   canDelete?: boolean;
   // canReoder?: boolean;
+  htmlId?: string;
   value?: string;
 }
 

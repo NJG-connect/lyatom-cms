@@ -1281,6 +1281,8 @@ label {
   max-width: 136%;
 }
 .features-box {
+  height: 355px;
+  width: auto;
   margin: 0 auto;
   box-shadow: 48px 16px 48px rgba(24, 37, 56, 0.12);
   -webkit-transform: perspective(1000px) rotateY(10deg) translateY(2%);

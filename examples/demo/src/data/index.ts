@@ -81,6 +81,7 @@ const data: CmsPropsType = {
           title: "Information Section",
           referenceFieldKey: "title",
           id: "infoSection",
+          htmlId: "div-first-section-item",
           canAdd: true,
           canDelete: true,
           fields: [

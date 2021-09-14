@@ -40,6 +40,7 @@ function FirstSection() {
                 <div
                   className="feature is-revealing"
                   key={`div-${el.title || index + 1}`}
+                  id={`div-first-section-item${index}`}
                 >
                   <div className="feature-inner">
                     <div className="feature-icon">
@@ -51,11 +52,22 @@ function FirstSection() {
                             : undefined
                         }
                         alt={`Feature ${index}`}
+                        id={`logo-first-section-item${index}`}
                       />
                     </div>
                     <div className="feature-content">
-                      <h3 className="feature-title mt-0">{el.title}</h3>
-                      <p className="text-sm mb-0">{el.subtitle}</p>
+                      <h3
+                        className="feature-title mt-0"
+                        id={`title-first-section-item${index}`}
+                      >
+                        {el.title}
+                      </h3>
+                      <p
+                        className="text-sm mb-0"
+                        id={`subtitle-first-section-item${index}`}
+                      >
+                        {el.subtitle}
+                      </p>
                     </div>
                   </div>
                 </div>
