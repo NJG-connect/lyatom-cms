@@ -74,6 +74,7 @@ export default data;
 ```
 
 <div id="pat"></div>
+
 #### Create Personnal Access Token on GitHub
 
 Je vous invite à directement suivre le tuto de la documentation de github [dispo ici](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)

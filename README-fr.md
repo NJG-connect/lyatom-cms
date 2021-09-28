@@ -7,7 +7,7 @@
 
 Lyatom CMS est un package conçu en React.js qui permet aux utilisateurs par un moyen simple de modifier et d'ajouter du contenu directement sur votre site conçu en React.js (tu veux plus d'information n'hésite pas à [consulter cette page](./docs/fr/resume.md))
 
-## Core Features
+## Core Features 🥰
 
 - Inscription + Connexion
 - Modifiez votre site en temps réel
@@ -16,7 +16,7 @@ Lyatom CMS est un package conçu en React.js qui permet aux utilisateurs par un 
 - Gestion des Utilisateurs
 - Versionning
 
-## Get started
+## Get started 👇
 
 [Suivre le guide d'installation detaillé](./docs/fr/getStarted.md)
 
@@ -27,12 +27,12 @@ Lyatom CMS est un package conçu en React.js qui permet aux utilisateurs par un 
   4. [Dynamiser le contenu de votre html](./docs/fr/getStarted.md#initAdminPanel) avec le fichier de configuration & des différents Json
   5. [Initialiser l'admin Panel sur la page souhaitée](./docs/fr/getStarted.md#initAdminPanel)
 
-## Example
+## Example 👀
 
 - live demo: [https://lyatomdemo.netlify.app](https://lyatomdemo.netlify.app/)
 - tu veux le tester en local suit ce [lien](./examples/demo/README.md)
 
-## Next Features
+## Next Features 🤓
 
 - Enrichir les types Inputs
 - Support de plusieurs langues
@@ -46,17 +46,17 @@ Prérequis necéssaires :
 - le site doit-etre conçu en [React.js](https://fr.reactjs.org/).
 - Le site doit utiliser [Netlify](https://www.netlify.com/)
 
-## Motivation
+## Motivation 💪
 
 Nous avons créé ce CMS pour proposer une expérience légère & fluide à l'utilisateur avec un design épuré afin de s'adapter à tous type d'utilisation.
 
 Avec des fonctionnalités d'un Content Manager System LyatomCMS à l'avantage de fonctionner sans serveur (Git-based CMS)
 
-## Open Source
+## Open Source 🤗
 
 Nous avons développé & proposons l'utilisation de ce CMS gratuitement afin d'en faire un outil collaboratif et évolutif.
 
-## Need help
+## Need help 🤝
 
 > Pas le temps de s'y pencher, des difficultés d'intégrations ? NJG Connect vous accompagne sur la mise en place de l'outil sur votre site web.
 
@@ -71,7 +71,7 @@ Propulsé par [NJG Connect](https://njgconnect.fr/) Entreprise digital spéciali
 - Designé par [Jonathan Nohile](https://www.linkedin.com/in/jonathan-nohile) (CEO - NJG Connect)
 - Développé par [Jeremy Noh](https://github.com/JeremyNoh) (CTO - NJG Connect)
 
-## Read this in other languages
+## Read this in other languages 🇫🇷 🏴󠁧󠁢󠁥󠁮󠁧󠁿
 
 - [English](./README.md)
 - French

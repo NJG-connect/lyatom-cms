@@ -7,7 +7,7 @@
 
 Lyatom CMS is a package designed in React.js that allows users through a simple way to edit and add content directly to your site designed in React.js (if you want more information don't hesitate to [check this page](./docs/en/resume.md))
 
-## Core Features
+## Core Features 🥰
 
 - Registration + Login
 - Edit your site in real time
@@ -16,7 +16,7 @@ Lyatom CMS is a package designed in React.js that allows users through a simple 
 - User Management
 - Versioning
 
-## Get started
+## Get started 👇
 
 [Follow the detailed installation guide](./docs/en/getStarted.md)
 
@@ -27,12 +27,12 @@ Lyatom CMS is a package designed in React.js that allows users through a simple 
   4. [Boost your html content](./docs/en/getStarted.md#initAdminPanel) avec le fichier de configuration & des différents Json
   5. [Initialize the admin Panel on the desired page](./docs/en/getStarted.md#initAdminPanel)
 
-## Example
+## Example 👀
 
 - Live demo: [https://lyatomdemo.netlify.app](https://lyatomdemo.netlify.app/)
 - You want to test it locally follow this [link](./examples/demo/README.md)
 
-## Next Features
+## Next Features 🤓
 
 - Enrich the Inputs types
 - Support for multiple languages
@@ -46,17 +46,17 @@ Prerequisites:
 - the site must be designed in [React.js](https://en.reactjs.org/).
 - The site must use [Netlify](https://www.netlify.com/)
 
-## Motivation
+## Motivation 💪
 
 We created this CMS to offer a light & fluid experience to the user with a clean design to adapt to all types of use.
 
 With features of a Content Manager System LyatomCMS with the advantage of operating without a server (Git-based CMS)
 
-## Open Source
+## Open Source 🤗
 
 We have developed & offer the use of this CMS for free in order to make it a collaborative and scalable tool.
 
-## Need help
+## Need help 🤝
 
 > No time to look into it, integration difficulties? NJG Connect supports you in setting up the tool on your website.
 
@@ -71,7 +71,7 @@ Powered by [NJG Connect](https://njgconnect.fr/) Digital company specializing in
 - Designed by [Jonathan Nohile](https://www.linkedin.com/in/jonathan-nohile) (CEO - NJG Connect)
 - Developed by [Jeremy Noh](https://github.com/JeremyNoh) (CTO - NJG Connect)
 
-## Read this in other languages
+## Read this in other languages 🇫🇷 🏴󠁧󠁢󠁥󠁮󠁧󠁿
 
 - English
 - [French](./README-fr.md)
