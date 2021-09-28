@@ -3,126 +3,75 @@
 </p>
 <h1 align="center">Lyatom CMS <small><sup>(React.js Package)</sup></small></h1>
 
-[![LyatomCMS Demo](./src/icons/Lyatom-CMS.gif)](https://tina.io/)
+[![LyatomCMS Demo](./src/icons/Lyatom-CMS.gif)](https://lyatomdemo.netlify.app/admin)
 
-## About
+Lyatom CMS is a package designed in React.js that allows users through a simple way to edit and add content directly to your site designed in React.js (if you want more information don't hesitate to [check this page](./docs/en/resume.md))
 
-Lyatom CMS est un Package concu en React.js qui permet aux utilisateurs par un moyen simple de modifier et d'ajouter du contenu directement sur votre site concu en React.js
+## Core Features
 
-## Core characteristics
-
-- Inscription + Connection
-- Modifiez votre site en temps réel
-- Edition Cross-Platform
-- Authentification **external OAuth** (compte : Google, Netlify Identity, Github )
-- Gestion des Utilisateurs
-- Versionning
+- Registration + Login
+- Edit your site in real time
+- Cross-Platform Edition
+- Authentication ** external OAuth ** (account: Google, Netlify Identity, Github)
+- User Management
+- Versioning
 
 ## Get started
 
-1°) Installer le package sur votre projet
-2°) Créer une clé personnel Github
-3°) Créer son fichier de Configuration
-4°) Initiliaser l'admin Panel sur la page souhaité
+[Follow the detailed installation guide](./docs/en/getStarted.md)
 
-## Quick Start
-
-⚙️ Installation
-
-```
-yarn add lyatom-cms
-```
-
-créer un fichier Json avec tes données initiales
-
-```json
-  "title" : "Title",
-  "paragraph": "paragraph",
-  "image": "logo.png"
-```
-
-créer un fichier de configuration ( vous pouvez vous aidez du typage "CmsPropsType")
-
-```typescript
-import { CmsPropsType } from "lyatom-cms";
-
-const data: CmsPropsType = {
-  branch: "main",
-  repo: "NJG-connect/lyatom-cms",
-  urlForLogin: "admin",
-  mediaFolder: "/src/assets/images",
-  title: "demo Lyatom CMS",
-  type: "firstLvl",
-};
-export default data;
-```
-
-import-le dans votre projet
-
-```javascript
-import React from "react";
-import AdminPanel, { CmsPropsType } from "lyatom-cms";
-
-export default App = () => {
-  return (
-    <div >
-      <AdminPanel
-        parameter={data}
-        githubToken={process.env.REACT_APP_GH_TOKEN_PERSONAL!}
-      />
-
-      <h1></h1>
-      <p></p>
-    </div>
-  );
-};
-```
+- The different steps to follow
+  1. [Install the package on your project](./docs/en/getStarted.md#installation)
+  2. [Create your Configuration file](./docs/en/getStarted.md#configuration)
+  3. [Create a personal Github key](./docs/en/getStarted.md#pat) ( PAT )
+  4. [Boost your html content](./docs/en/getStarted.md#initAdminPanel) avec le fichier de configuration & des différents Json
+  5. [Initialize the admin Panel on the desired page](./docs/en/getStarted.md#initAdminPanel)
 
 ## Example
 
-- [live demo](https://lyatomdemo.netlify.app/)
-- tu veux le tester en locale suit ce [lien](./examples/demo/README.md)
+- Live demo: [https://lyatomdemo.netlify.app](https://lyatomdemo.netlify.app/)
+- You want to test it locally follow this [link](./examples/demo/README.md)
 
-## Features
+## Next Features
 
-- Enrichir les types Inputs
-- Support de plusieurs langue
-- Gestion de rôle ( edition, lecture )
-- Outil permettant la création automatique du fichier de configuration
+- Enrich the Inputs types
+- Support for multiple languages
+- Role management (editing, reading)
+- Tool allowing the automatic creation of the configuration file
 
 ## Not for everyone ✌️
 
-Prérequis necéssaires :
+Prerequisites:
 
-- le site doit-etre concu en [React.js](https://fr.reactjs.org/).
-- Le site doit utiliser [Netlify](https://www.netlify.com/)
+- the site must be designed in [React.js](https://en.reactjs.org/).
+- The site must use [Netlify](https://www.netlify.com/)
 
 ## Motivation
 
-Nous avons créer ce CMS pour proposer une expérience légère & fluide à l'utilisateur avec un design épuré afin de s'adapter à tous type d'utilisation.
+We created this CMS to offer a light & fluid experience to the user with a clean design to adapt to all types of use.
 
-Avec des fonctionnalités d'un Content Manager System LyatomCMS à l'avantage de fonctionner sans serveur (Git-based CMS)
+With features of a Content Manager System LyatomCMS with the advantage of operating without a server (Git-based CMS)
 
 ## Open Source
 
-Nous avons développé & proposons l'utilisation de ce cms gratuitement afin d'en faire un outil collaboratif et évolutif.
+We have developed & offer the use of this CMS for free in order to make it a collaborative and scalable tool.
 
 ## Need help
 
-> Pas le temps de s'y pencher, des difficultés d'intégrations ? NJG Connect vous accompagne sur la mise en place de l'outil sur votre site web.
+> No time to look into it, integration difficulties? NJG Connect supports you in setting up the tool on your website.
 
 ## Contributing
 
-N'hesitez pas à proposer des améliorations, remonter des bugs pour faire de cette outil, NOTRE OUTIL.
+Do not hesitate to suggest improvements, report bugs to make this tool, OUR TOOL.
 
 ## Creator ✍️
 
-Propulsé par [NJG Connect](https://njgconnect.fr/) Entreprise digital spécialisé dans le Développement, graphisme et conseil digital.
+Powered by [NJG Connect](https://njgconnect.fr/) Digital company specializing in Development, graphics and digital consulting.
 
-- Designé par [Jonathan Nohile](https://www.linkedin.com/in/jonathan-nohile) (CEO - NJG Connect)
-- Développé par [Jeremy Noh](https://github.com/JeremyNoh) (CTO - NJG Connect)
+- Designed by [Jonathan Nohile](https://www.linkedin.com/in/jonathan-nohile) (CEO - NJG Connect)
+- Developed by [Jeremy Noh](https://github.com/JeremyNoh) (CTO - NJG Connect)
 
 ## Read this in other languages
 
 - English
-- French
+- [French](./README-fr.md)
