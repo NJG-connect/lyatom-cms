@@ -45,6 +45,11 @@ const data: CmsPropsType = {
           title: "Button title :",
         },
         {
+          type: "input",
+          id: "buttonLink",
+          title: "Button link :",
+        },
+        {
           type: "image",
           title: "Logo ",
           id: "logo",

@@ -16,8 +16,10 @@ function Header() {
             <div className="hero-cta">
               <a
                 className="button button-primary"
-                href="/#"
+                href={headerJson.buttonLink}
                 id="buttonTitle-header"
+                target="_blank"
+                rel="noreferrer"
               >
                 {headerJson.buttonTitle}
               </a>
