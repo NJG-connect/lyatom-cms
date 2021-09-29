@@ -372,7 +372,7 @@ function AdminPanelContainer({
 
   function onReset() {
     setjsonValue(originJsonValue);
-    window.location.reload(false);
+    window.location.reload();
   }
 
   async function onSave() {

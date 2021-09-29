@@ -1,13 +1,32 @@
 <p align="center">
-    <img alt="icon-njgconnect" src="./src/assets/images/logo.svg" >
+    <img alt="icon-njgconnect" src="./src/assets/images/Couleur.png" >
 </p>
 <h1 align="center">Site demo</h1>
 
-## Team
+#### ⚙️ Install dependencies
 
-- Designé par [Jonathan Nohile](https://www.linkedin.com/in/jonathan-nohile)
-- Développé par [Jeremy Noh](https://github.com/JeremyNoh)
+```
+yarn
+```
 
-<br />
+or
 
-Merci à vous 🤗
+```
+npm install
+```
+
+#### launch 😲
+
+```
+yarn start
+```
+
+or
+
+```
+npm start
+```
+
+#### Online
+
+[Live demo](https://lyatomdemo.netlify.app/)

@@ -30,7 +30,7 @@ Lyatom CMS is a package designed in React.js that allows users through a simple 
 ## Example 👀
 
 - Live demo: [https://lyatomdemo.netlify.app](https://lyatomdemo.netlify.app/)
-- You want to test it locally follow this [link](./examples/demo/README.md)
+- You want to test it locally, follow this [link](./examples/demo/README.md)
 
 ## Next Features 🤓
 
@@ -48,7 +48,7 @@ Prerequisites:
 
 ## Motivation 💪
 
-We created this CMS to offer a light & fluid experience to the user with a clean design to adapt to all types of use.
+We created this CMS to offer a light & fluid experience to the user with a clean design to adapted to all types of use.
 
 With features of a Content Manager System LyatomCMS with the advantage of operating without a server (Git-based CMS)
 
