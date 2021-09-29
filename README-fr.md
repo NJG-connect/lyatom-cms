@@ -1,3 +1,7 @@
+[![npm version](https://img.shields.io/npm/v/lyatom-cms.svg?style=flat-square)](https://www.npmjs.com/package/lyatom-cms)
+[![npm downloads](https://img.shields.io/npm/dm/lyatom-cms.svg?style=flat-square)](https://www.npmjs.com/package/lyatom-cms)
+![GitHub top language](https://img.shields.io/github/languages/top/NJG-connect/lyatom-cms?style=flat-square)
+
 <p align="center">
   <img src="./src/icons/logo.png" alt="Lyatom cms" width="50%" />
 </p>

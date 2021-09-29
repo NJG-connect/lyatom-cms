@@ -28,7 +28,7 @@ creates a Json file with the initial data.
 
 <div id="configuration"></div>
 
-#### Create a configuration file _( [voir les options](../configurationFile.md))_
+#### Create a configuration file _( [see options](../configurationFile.md))_
 
 > You can use the "CmsPropsType" typing.
 
