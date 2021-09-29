@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import styles from "./AdminPanel.module.css";
 import CmsPropsType, {
-  noneType,
+  sectionType,
   inputType,
   objectType,
   arrayType,
@@ -23,7 +23,7 @@ interface Props {
   data: any;
   currentConfig:
     | CmsPropsType
-    | noneType
+    | sectionType
     | inputType
     | objectType
     | arrayType
@@ -99,7 +99,7 @@ function AdminPanel({
     (
       configValue:
         | CmsPropsType
-        | noneType
+        | sectionType
         | inputType
         | objectType
         | arrayType
@@ -110,7 +110,7 @@ function AdminPanel({
       // time to loading all component
       if (
         configValue.type !== "firstLvl" &&
-        configValue.type !== "none" &&
+        configValue.type !== "section" &&
         configValue.type !== "object" &&
         configValue.value === undefined
       ) {
@@ -125,7 +125,7 @@ function AdminPanel({
             }}
           />
         ));
-      } else if (configValue.type === "none") {
+      } else if (configValue.type === "section") {
         return configValue.fields.map((el, index) =>
           renderViewWithContent(el, index, nbrIncrementation + 1)
         );
@@ -395,7 +395,7 @@ function AdminPanel({
     if (!currentConfigProps || currentConfigProps.type === "firstLvl") {
       return undefined;
     }
-    if (["none", "object", "array"].includes(currentConfigProps.type)) {
+    if (["section", "object", "array"].includes(currentConfigProps.type)) {
       return currentConfigProps.title;
     }
     return undefined;

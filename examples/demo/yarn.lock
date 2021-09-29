@@ -7195,6 +7195,10 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+"lyatom-cms@link:../../build":
+  version "0.0.0"
+  uid ""
+
 lz-string@^1.4.4:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"

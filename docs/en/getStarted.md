@@ -44,7 +44,7 @@ const data: CmsPropsType = {
   type: "firstLvl", // start always with this
   fields: [
     {
-      type: "none", // start second with this its to create first section on Panel
+      type: "section", // start second with this its to create first section on Panel
       title: "Section 1",
       file: "/src/data/info.json", // root path specifies info of the first section
       fields: [
@@ -99,7 +99,7 @@ export default App = () => {
   return (
     <div>
       <AdminPanel
-        parameter={data}
+        config={data} // import une config here
         githubToken={process.env.REACT_APP_GH_TOKEN_PERSONAL} // create a PAT on github and add it to the .env
       />
 

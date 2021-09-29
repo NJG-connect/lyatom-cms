@@ -4,18 +4,18 @@ Additional information before starting:
 
 LyatomCMS currently has two parameters:
 **githubToken**: `string` which represents a personal access token
-**parameter**: `Object` which will create the structure of the Panel
+**config**: `Object` which will create the structure of the Panel
 
-We will see the options of `parameter`
+We will see the options of `config`
 
-> For the construction of the parameter you can use the type `CmsPropsType
+> For the construction of the config you can use the type `CmsPropsType
 
-example of the `parameter` name:
+example of the `config` name:
 
 ```typescript
 import { CmsPropsType } from "lyatom-cms";
 
-const parameter: CmsPropsType = {
+const config: CmsPropsType = {
   branch: "main", // Branch to update
   repo: "NJG-connect/lyatom-cms", // Follows the pattern [org-or-username]/[repo-name]
   urlForLogin: "admin", // url for access of the panelAdmin
@@ -24,7 +24,7 @@ const parameter: CmsPropsType = {
   type: "firstLvl", // start always with this
   fields: [
     {
-      type: "none", // start second with this its to create first section on Panel
+      type: "section", // start second with this its to create first section on Panel
       title: "Section 1",
       file: "/src/data/info.json", // root path specifies info of the first section
       fields: [
@@ -53,27 +53,27 @@ const parameter: CmsPropsType = {
 export default data;
 ```
 
-#### Options Parameter
+#### Options config
 
 ---
 
-| Properties  |      Type       |            Description            |  Required  |
-| :---------: | :-------------: | :-------------------------------: | :--------: | --------- | ----------- | -------------------------------- | ------ |
-|    type     |   `"firstvl"`   |      Start always with this       |   `true`   |
-|   branch    |    `string`     |         Branch to update          |   `true`   |
-|    repo     |    `string`     | [org-or-username]**/**[repo-name] |   `true`   |
-|    title    |    `string`     |      Title in the PanelAdmin      |   `true`   |
-| urlForLogin |    `string`     | Url for access of the panelAdmin  |   `true`   |
-| mediaFolder |    `string`     |   Root path to the media files    |  `false`   |
-|   fields    | `Array<noneType |             inputType             | objectType | arrayType | imageType>` | Retrieve content of your website | `true` |
+| Properties  |      Type       |            Description            | Required |
+| :---------: | :-------------: | :-------------------------------: | :------: |
+|    type     |   `"firstvl"`   |      Start always with this       |  `true`  |
+|   branch    |    `string`     |         Branch to update          |  `true`  |
+|    repo     |    `string`     | [org-or-username]**/**[repo-name] |  `true`  |
+|    title    |    `string`     |      Title in the PanelAdmin      |  `true`  |
+| urlForLogin |    `string`     | Url for access of the panelAdmin  |  `true`  |
+| mediaFolder |    `string`     |   Root path to the media files    | `false`  |
+|   fields    | `sectionType[]` | Retrieve content of your website  |  `true`  |
 
 #### Options of Fields
 
-##### Option noneType
+##### Option sectionType
 
 | Properties |       Type       |                Description                 | Required  |
 | :--------: | :--------------: | :----------------------------------------: | :-------: | ------------ | -------------------------------- | ------ |
-|    type    |     `"none"`     |                Description                 |  `true`   |
+|    type    |   `"section"`    |                Description                 |  `true`   |
 |   title    |     `string`     |             Title in the Panel             |  `true`   |
 |    file    |     `string`     | Where the json file information is located |  `true`   |
 |   fields   | `Array<inputType |                 objectType                 | arrayType | imageType>;` | Retrieve content of your website | `true` |
@@ -97,12 +97,12 @@ for edit text content will create a input
 
 Refers to an Object, will create a Section with the different fields inside
 
-| Properties |      Type       |                        Description                        |  Required  |
-| :--------: | :-------------: | :-------------------------------------------------------: | :--------: | --------- | ----------- | -------------------------- | ------ |
-|    type    |   `"object"`    | refer to a Object in your JSON file will create a Section |   `true`   |
-|   title    |    `string`     |                  Title for your Section                   |   `true`   |
-|     id     |    `string`     |       reference of the Object key in the json file        |   `true`   |
-|   fields   | `Array<noneType |                         inputType                         | objectType | arrayType | imageType>` | Other Fields in the Object | `true` |
+| Properties |        Type        |                        Description                        |  Required  |
+| :--------: | :----------------: | :-------------------------------------------------------: | :--------: | --------- | ----------- | -------------------------- | ------ |
+|    type    |     `"object"`     | refer to a Object in your JSON file will create a Section |   `true`   |
+|   title    |      `string`      |                  Title for your Section                   |   `true`   |
+|     id     |      `string`      |       reference of the Object key in the json file        |   `true`   |
+|   fields   | `Array<sectionType |                         inputType                         | objectType | arrayType | imageType>` | Other Fields in the Object | `true` |
 
 ##### Option arrayType
 

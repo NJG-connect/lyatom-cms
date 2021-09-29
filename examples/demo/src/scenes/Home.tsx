@@ -11,7 +11,7 @@ function Home() {
   return (
     <div>
       <AdminPanel
-        parameter={data}
+        config={data}
         githubToken={process.env.REACT_APP_GH_TOKEN_PERSONAL!}
       />
       <div className="body-wrap boxed-container">

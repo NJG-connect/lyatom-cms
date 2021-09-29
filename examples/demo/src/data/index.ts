@@ -9,7 +9,7 @@ const data: CmsPropsType = {
   type: "firstLvl",
   fields: [
     {
-      type: "none",
+      type: "section",
       title: "Menu",
       file: "/examples/demo/src/data/menu.json",
       fields: [
@@ -22,7 +22,7 @@ const data: CmsPropsType = {
       ],
     },
     {
-      type: "none",
+      type: "section",
       file: "/examples/demo/src/data/header.json",
       title: "Header",
       fields: [
@@ -53,7 +53,7 @@ const data: CmsPropsType = {
       ],
     },
     {
-      type: "none",
+      type: "section",
       file: "/examples/demo/src/data/firstSection.json",
       title: "First Section",
       fields: [
@@ -108,7 +108,7 @@ const data: CmsPropsType = {
       ],
     },
     {
-      type: "none",
+      type: "section",
       title: "Second Section",
       file: "/examples/demo/src/data/secondSection.json",
       fields: [

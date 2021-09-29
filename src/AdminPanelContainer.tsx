@@ -7,7 +7,7 @@ import React, {
 } from "react";
 
 import CmsPropsType, {
-  noneType,
+  sectionType,
   inputType,
   objectType,
   arrayType,
@@ -31,22 +31,22 @@ declare global {
 
 // type Component
 export interface AdminPanelProps extends HTMLAttributes<HTMLDivElement> {
-  parameter: CmsPropsType;
+  config: CmsPropsType;
   githubToken: string;
 }
 
 function AdminPanelContainer({
-  parameter,
+  config,
   githubToken,
 }: AdminPanelProps): JSX.Element {
   // This State never change after initial just add value with good path of the jsonValue
   const [originConfig, setOriginConfig] = useState<CmsPropsType>({
-    ...parameter,
+    ...config,
   });
 
   // state of originConfig but add value property with path of real data
   const [currentConfig, setcurrentConfig] = useState<
-    CmsPropsType | noneType | inputType | objectType | arrayType | imageType
+    CmsPropsType | sectionType | inputType | objectType | arrayType | imageType
   >({ ...originConfig });
 
   // real data
@@ -73,7 +73,7 @@ function AdminPanelContainer({
 
   // its url for login or not
   const [isUrlForLogin, setIsUrlForLogin] = useState(
-    window.location.pathname.includes(parameter.urlForLogin)
+    window.location.pathname.includes(config.urlForLogin)
   );
 
   // statut of the request when save element on git
@@ -171,7 +171,7 @@ function AdminPanelContainer({
   // recursive function configure and add real data on state JsonValue + add path the real value on input
   const handleStructureData = useCallback(
     async (
-      subCategory: noneType | inputType | objectType | arrayType | imageType,
+      subCategory: sectionType | inputType | objectType | arrayType | imageType,
       lvlNameOfArrayOrObject: Array<string> = [],
       dataFetched?: any | undefined
     ) => {
@@ -262,7 +262,7 @@ function AdminPanelContainer({
             })
           )) as unknown as objectType[];
           return newSubCategory;
-        } else if (subCategory.type === "none") {
+        } else if (subCategory.type === "section") {
           // fetch json Value on specific branch with the path of the file
           const data = await fetchJsonDataFromGit(
             `${originConfig.repo}/contents${subCategory.file}?ref=${originConfig.branch}`,
@@ -328,12 +328,12 @@ function AdminPanelContainer({
         }));
       }
 
-      const newOriginConfig = await Promise.all(
+      const newOriginConfig: sectionType[] = (await Promise.all(
         originConfig.fields.map(async (category) => {
           const result = await handleStructureData(category);
           return result || category;
         })
-      );
+      )) as sectionType[];
       setOriginConfig({ ...originConfig, fields: newOriginConfig });
       setcurrentConfig({ ...originConfig, fields: newOriginConfig });
     })();
@@ -386,15 +386,16 @@ function AdminPanelContainer({
             JSON.stringify(jsonValue[keyInJsonValue]) !==
             JSON.stringify(originJsonValue[keyInJsonValue])
           ) {
-            const noneValue: noneType | undefined = originConfig.fields.find(
-              (element) =>
-                element.type === "none" && element.title === keyInJsonValue
-            ) as noneType;
+            const sectionValue: sectionType | undefined =
+              originConfig.fields.find(
+                (element) =>
+                  element.type === "section" && element.title === keyInJsonValue
+              ) as sectionType;
 
             return {
               data: jsonValue[keyInJsonValue],
               file:
-                noneValue.file ||
+                sectionValue.file ||
                 `/src/data/${(keyInJsonValue as string).toLowerCase()}.json`,
               sha: jsonValueSha[keyInJsonValue],
             };
@@ -549,7 +550,7 @@ function AdminPanelContainer({
       onReoderArr={handleReoderArr}
       onDeleteElementOnArr={handleDeleteElementOnArr}
       onAddElementOnArr={handleAddElementOnArray}
-      title={parameter.title}
+      title={config.title}
       onSelectImageFromGallery={handleSelectImageFromGallery}
       onSendFile={handleSendFile}
       statusRequest={statusRequest}

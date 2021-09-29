@@ -1,5 +1,5 @@
-export interface noneType {
-  type: "none";
+export interface sectionType {
+  type: "section";
   title: string;
   file: string;
   fields: Array<inputType | objectType | arrayType | imageType>;
@@ -29,7 +29,7 @@ export interface objectType {
   type: "object";
   title: string;
   id: string;
-  fields: Array<noneType | inputType | objectType | arrayType | imageType>;
+  fields: Array<sectionType | inputType | objectType | arrayType | imageType>;
 }
 export interface arrayType {
   type: "array";
@@ -51,7 +51,7 @@ export interface CmsPropsType {
   title: string;
   urlForLogin: string;
   mediaFolder?: string;
-  fields: Array<noneType | inputType | objectType | arrayType | imageType>;
+  fields: Array<sectionType>;
 }
 
 export default CmsPropsType;
