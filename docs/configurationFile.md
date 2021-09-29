@@ -82,14 +82,13 @@ export default data;
 
 for edit text content will create a input
 
-| Properties |    Type     |                       Description                       | Required |
-| :--------: | :---------: | :-----------------------------------------------------: | :------: |
-|    type    |  `"input"`  |                   will print a input                    |  `true`  |
-|   title    |  `string`   |                  Title for your input                   |  `true`  |
-|   value    | `undefined` |           dont write anything in this section           | `false`  |
-|  disabled  |  `boolean`  |                     disabled input                      | `false`  |
-|     id     |  `string`   |          reference of the key in the json file          |  `true`  |
-|   htmlId   |  `string`   | Add this id in the HTML for see change in the real time | `false`  |
+| Properties |   Type    |                       Description                       | Required |
+| :--------: | :-------: | :-----------------------------------------------------: | :------: |
+|    type    | `"input"` |                   will print a input                    |  `true`  |
+|   title    | `string`  |                  Title for your input                   |  `true`  |
+|  disabled  | `boolean` |                     disabled input                      | `false`  |
+|     id     | `string`  |          reference of the key in the json file          |  `true`  |
+|   htmlId   | `string`  | Add this id in the HTML for see change in the real time | `false`  |
 
 <br/>
 
@@ -118,18 +117,16 @@ Refers to an Array, will create a Section with the different fields inside
 |      canAdd       |    `boolean`     |            Can delete a element in your Array            |          `false`          |
 |     canDelete     |    `boolean`     |            Can delete a element in your Array            |          `false`          |
 |      htmlId       |     `string`     | Add this id in the HTML for see change in the real time  |          `false`          |
-|       value       |   `undefined`    |           dont write anything in this section            |          `false`          |
 
 <br/>
 ##### Option imageType
 
 Refers to an Image, will create a ImagePicker, see a gallery , and upload new image
 
-| Properties  |    Type     |                                    Description                                     | Required |
-| :---------: | :---------: | :--------------------------------------------------------------------------------: | :------: |
-|    type     |  `"image"`  |                              will print a ImagePicker                              |  `true`  |
-|    title    |  `string`   |                             Title for your imagePicker                             |  `true`  |
-|    value    | `undefined` |                        dont write anything in this section                         | `false`  |
-| mediaFolder |  `string`   | Root path to the media files dont need if the same of the first mediaFolder fields | `false`  |
-|     id      |  `string`   |                       reference of the key in the json file                        |  `true`  |
-|   htmlId    |  `string`   |              Add this id in the HTML for see change in the real time               | `false`  |
+| Properties  |   Type    |                                    Description                                     | Required |
+| :---------: | :-------: | :--------------------------------------------------------------------------------: | :------: |
+|    type     | `"image"` |                              will print a ImagePicker                              |  `true`  |
+|    title    | `string`  |                             Title for your imagePicker                             |  `true`  |
+| mediaFolder | `string`  | Root path to the media files dont need if the same of the first mediaFolder fields | `false`  |
+|     id      | `string`  |                       reference of the key in the json file                        |  `true`  |
+|   htmlId    | `string`  |              Add this id in the HTML for see change in the real time               | `false`  |

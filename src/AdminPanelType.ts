@@ -9,7 +9,6 @@ export interface sectionType {
 export interface inputType {
   type: "input";
   title: string;
-  value?: any;
   disabled?: boolean;
   id: string;
   htmlId?: string;
@@ -18,7 +17,6 @@ export interface imageType {
   type: "image";
   title: string;
   mediaFolder?: string;
-  value?: any;
   // canAdd?: boolean;
   // canEdit?: boolean;
   id: string;
@@ -41,7 +39,6 @@ export interface arrayType {
   canDelete?: boolean;
   // canReoder?: boolean;
   htmlId?: string;
-  value?: string;
 }
 
 export interface CmsPropsType {
@@ -52,6 +49,39 @@ export interface CmsPropsType {
   urlForLogin: string;
   mediaFolder?: string;
   fields: Array<sectionType>;
+}
+
+// The next type is the same but with value added after we add data on each type
+// the value it's the path of the real data of the JSON file
+
+export interface CmsPropsTypeWithValue extends CmsPropsType {
+  fields: Array<sectionTypeWithValue>;
+}
+export interface inputTypeWithValue extends inputType {
+  value?: string;
+}
+export interface imageTypeWithValue extends imageType {
+  value?: string;
+}
+export interface arrayTypeWithValue extends arrayType {
+  value?: string;
+}
+export interface objectTypeWithValue extends objectType {
+  fields: Array<
+    | sectionTypeWithValue
+    | inputTypeWithValue
+    | objectTypeWithValue
+    | arrayTypeWithValue
+    | imageTypeWithValue
+  >;
+}
+export interface sectionTypeWithValue extends sectionType {
+  fields: Array<
+    | inputTypeWithValue
+    | objectTypeWithValue
+    | arrayTypeWithValue
+    | imageTypeWithValue
+  >;
 }
 
 export default CmsPropsType;

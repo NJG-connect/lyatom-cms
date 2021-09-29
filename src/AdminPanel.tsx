@@ -6,12 +6,13 @@ import React, {
   useEffect,
 } from "react";
 import styles from "./AdminPanel.module.css";
-import CmsPropsType, {
-  sectionType,
-  inputType,
-  objectType,
-  arrayType,
-  imageType,
+import {
+  CmsPropsTypeWithValue,
+  sectionTypeWithValue,
+  inputTypeWithValue,
+  objectTypeWithValue,
+  arrayTypeWithValue,
+  imageTypeWithValue,
 } from "./AdminPanelType";
 import panelIcon from "./icons";
 import Input from "./components/Input";
@@ -22,12 +23,12 @@ import { resolvePathToRealObjectWithArray } from "./utils";
 interface Props {
   data: any;
   currentConfig:
-    | CmsPropsType
-    | sectionType
-    | inputType
-    | objectType
-    | arrayType
-    | imageType;
+    | CmsPropsTypeWithValue
+    | sectionTypeWithValue
+    | inputTypeWithValue
+    | objectTypeWithValue
+    | arrayTypeWithValue
+    | imageTypeWithValue;
   pressOnElement: (index: number, lineInArray?: number) => void;
   specificIndexInField?: number[];
   onPressBack: () => void;
@@ -98,12 +99,12 @@ function AdminPanel({
   const renderViewWithContent = useCallback(
     (
       configValue:
-        | CmsPropsType
-        | sectionType
-        | inputType
-        | objectType
-        | arrayType
-        | imageType,
+        | CmsPropsTypeWithValue
+        | sectionTypeWithValue
+        | inputTypeWithValue
+        | objectTypeWithValue
+        | arrayTypeWithValue
+        | imageTypeWithValue,
       indexOfField?: number | undefined,
       nbrIncrementation: number = 0
     ) => {

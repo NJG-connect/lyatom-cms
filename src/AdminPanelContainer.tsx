@@ -12,6 +12,12 @@ import CmsPropsType, {
   objectType,
   arrayType,
   imageType,
+  sectionTypeWithValue,
+  inputTypeWithValue,
+  objectTypeWithValue,
+  arrayTypeWithValue,
+  imageTypeWithValue,
+  CmsPropsTypeWithValue,
 } from "./AdminPanelType";
 import {
   fetchImageDataFromGit,
@@ -40,13 +46,18 @@ function AdminPanelContainer({
   githubToken,
 }: AdminPanelProps): JSX.Element {
   // This State never change after initial just add value with good path of the jsonValue
-  const [originConfig, setOriginConfig] = useState<CmsPropsType>({
+  const [originConfig, setOriginConfig] = useState<CmsPropsTypeWithValue>({
     ...config,
   });
 
   // state of originConfig but add value property with path of real data
   const [currentConfig, setcurrentConfig] = useState<
-    CmsPropsType | sectionType | inputType | objectType | arrayType | imageType
+    | CmsPropsTypeWithValue
+    | sectionTypeWithValue
+    | inputTypeWithValue
+    | objectTypeWithValue
+    | arrayTypeWithValue
+    | imageTypeWithValue
   >({ ...originConfig });
 
   // real data
