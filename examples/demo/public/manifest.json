@@ -1,7 +1,7 @@
 {
-  "short_name": "NJG connect",
-  "name": "NJG connect",
-  "description": "NJG connect l'agence digitale qui répond à vos besoins",
+  "short_name": "LyatomCMS",
+  "name": "LyatomCMS",
+  "description": "LyatomCMS est un CMS qui permet aux utilisateurs par un moyen simple de modifier et d'ajouter du contenu directement sur leurs site",
   "icons": [
     {
       "src": "favicon.ico",

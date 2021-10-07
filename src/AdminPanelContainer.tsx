@@ -137,7 +137,7 @@ function AdminPanelContainer({
       netlifyIdentity.on("login", () => setuserLoggin(true));
       netlifyIdentity.on("logout", () => onDisconnected);
     }
-  }, []);
+  }, [window.netlifyIdentity]);
 
   useEffect(() => {
     if (window.netlifyIdentity && isUrlForLogin && !userIsLoggin) {
