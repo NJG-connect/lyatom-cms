@@ -34,11 +34,11 @@ function Footer() {
               <a href="https://njgconnect.fr" target="_blank" rel="noreferrer">
                 <div className="content-with-image-footer">
                   <img
-                    className="image-footer"
+                    className="image-footer njg-connect-image"
                     alt="NJG Connect"
                     src={require("../assets/footer/njgconnect.png").default}
                   />
-                  <p>NJG Connect</p>
+                  <p className=" njg-connect-text">NJG Connect</p>
                 </div>
               </a>
             </div>

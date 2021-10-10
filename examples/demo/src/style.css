@@ -1612,9 +1612,15 @@ hr::after,
   display: flex;
   flex-direction: row;
 }
+.right-content-footer {
+  text-align: right;
+}
 
-@media (max-width: 370px) {
-  .right-content-footer {
-    text-align: right;
-  }
+.njg-connect-image {
+  height: 50px;
+  width: 50px;
+}
+.njg-connect-text {
+  margin-bottom: 10px;
+  margin-top: 14px;
 }
